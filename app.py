@@ -1,6 +1,7 @@
 import streamlit as st
 from google.oauth2 import service_account
 from google.cloud import vision
+from PIL import Image
 import io
 
 # Set page
@@ -19,11 +20,13 @@ uploaded_file = st.file_uploader("📤 Upload an image", type=["jpg", "jpeg", "p
 if uploaded_file is not None:
     image_bytes = uploaded_file.read()
 
-    st.image(image, caption="🖼️ Uploaded Image", use_container_width=True)
+    # ✅ Show image using Pillow
+    pil_image = Image.open(io.BytesIO(image_bytes))
+    st.image(pil_image, caption="🖼️ Uploaded Image", use_container_width=True)
 
     with st.spinner("🔎 Analyzing image with Google Vision AI..."):
-        image = vision.Image(content=image_bytes)
-        response = client.text_detection(image=image)
+        vision_image = vision.Image(content=image_bytes)
+        response = client.text_detection(image=vision_image)
 
         if response.error.message:
             st.error(f"❌ API Error: {response.error.message}")
@@ -36,9 +39,9 @@ if uploaded_file is not None:
             else:
                 st.warning("No text found in the image.")
 
-    if st.button("📥 Download Result"):
+    if 'full_text' in locals() and full_text:
         st.download_button(
-            label="Download Text",
+            label="📥 Download Text",
             data=full_text,
             file_name="extracted_text.txt",
             mime="text/plain"
