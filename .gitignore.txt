@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+myenv/
+env/
+
+# VS Code settings
+.vscode/
+
+# Streamlit secrets (NEVER commit service account keys)
+.streamlit/secrets.toml
+googlecloud.json
+
+# Environment variables
+.env
+
+# macOS files
+.DS_Store
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Logs
+*.log
