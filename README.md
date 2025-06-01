@@ -7,12 +7,11 @@ A simple yet powerful Streamlit web app that extracts and displays **text** from
 - 📤 Upload image files (JPG, PNG, etc.)
 - 🧠 Uses Google Vision API for:
   - 🔠 **Text Detection (OCR)**
-  - 🏷️ **Label Detection** *(optional)*
-- 📄 Displays extracted text directly in the browser
+ - 📄 Displays extracted text directly in the browser
 - 🔐 Secured with a Google Service Account (via `secrets.toml` or environment)
 
-## 🚀 Live App (if deployed)
-[Click here to try it on Streamlit](#) *(update this once deployed)*
+## 🚀 Live App 
+[Click here to try it on Streamlit](https://image-analyzer-ai-2025.streamlit.app/)
 
 ## 📦 Setup Instructions
 
