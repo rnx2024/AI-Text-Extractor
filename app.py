@@ -19,7 +19,7 @@ uploaded_file = st.file_uploader("📤 Upload an image", type=["jpg", "jpeg", "p
 if uploaded_file is not None:
     image_bytes = uploaded_file.read()
 
-    st.image(image_bytes, caption="🖼️ Uploaded Image", use_column_width=True)
+    st.image(image, caption="🖼️ Uploaded Image", use_container_width=True)
 
     with st.spinner("🔎 Analyzing image with Google Vision AI..."):
         image = vision.Image(content=image_bytes)
